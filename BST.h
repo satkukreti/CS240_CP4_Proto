@@ -1,23 +1,27 @@
+//#ifndef BST_H
+
 #include <stdlib.h>
 #include <iostream>
 #include <vector>
 
-using namespace std
+using namespace std;
 
 struct Node{
- unsigned int data;
+ int data = -1;
  Node *right = nullptr;
  Node *left = nullptr;
-}
+};
 
 class BST{
 	public:
-		bool insert(Node &n);
-		bool removeNode(Node &n);
-		bool find(Node &n);
+		BST(unsigned int rootData);
+		Node& getRoot();
+		bool insert(int n, Node &N);
+		bool removeNode(unsigned int n);
+		bool find(unsigned int n);
+		void print();
+
 
 	private:
-		unsigned int root;
-		Node *rN;
-		Node *lN;
+		Node root;
 };
