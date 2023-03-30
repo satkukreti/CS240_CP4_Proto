@@ -12,7 +12,7 @@ struct Node{
 
 class BST{
 	public:
-		bool insert(Node &n);
+		void insert(Node &n);
 		bool removeNode(Node &n);
 		bool find(Node &n);
 
