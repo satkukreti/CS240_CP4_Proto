@@ -8,7 +8,7 @@ main.o: main.cpp
 	g++ -Wall -Wextra -c main.cpp
 
 BST.o: BST.cpp BST.h
-	g++ -Wall -Wextra -c BST.cpp BST.h
+	g++ -Wall -Wextra -c BST.cpp
 	
 clean:
 	rm -f *.o cp4

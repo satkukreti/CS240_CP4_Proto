@@ -6,38 +6,41 @@
 using namespace std;
 
 BST::BST(unsigned int rootData){
+	count = -1;	
 	root.data = rootData;
-	root.right = nullptr;
-	root.left = nullptr;
-}
+};
 
-Node& BST::getRoot(){
-	return (this->root);
-}
+Node* BST::getRoot(){
+	return &(this->root);
+};
 
-bool BST::insert(int n, Node &N){
+bool BST::insert(int n){
 	if(n < 0){
 		return false;	
-	}	
-	
-	if(N.data == -1){
-		N.data = n;
-		return true;
 	}
-	
-	Node *temp = new Node();
-	temp = &N;
-	//cout<<temp.data;
-	if(n > N.data){
-		temp = N.right;
-		insert(n, *(temp));
-	} else if(n < N.data){
-		temp = N.left;
-		insert(n, *(temp));
-	} else {
-		return false;
+		
+	insertRecursively(n, &root);
+	return true;
+};
+
+void BST::insertRecursively(int n, Node* N){
+	if (N == nullptr) {
+		Node *newNode = new Node();
+		newNode->data = n;
+		N = newNode;
+	} else if (n > N->data) {
+		insertRecursively(n, N->right);	
+	} else if (n <= N->data) {
+		insertRecursively(n, N->left);	
 	}
-	
-	return false;
-}
+};
+
+void BST::print(Node *node){
+	if (node == nullptr)
+        return;
+ 
+    print(node->left);
+    cout << node->data << " ";
+    print(node->right);
+};
 

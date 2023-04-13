@@ -15,13 +15,16 @@ struct Node{
 class BST{
 	public:
 		BST(unsigned int rootData);
-		Node& getRoot();
-		bool insert(int n, Node &N);
+		Node* getRoot();
+		bool insert(int n);
+		void insertRecursively(int n, Node *N);
+		
 		bool removeNode(unsigned int n);
 		bool find(unsigned int n);
-		void print();
+		void print(Node *node);
 
 
 	private:
 		Node root;
+		int count;
 };
