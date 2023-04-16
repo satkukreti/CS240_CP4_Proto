@@ -25,14 +25,26 @@ bool BST::insert(int n){
 
 void BST::insertRecursively(int n, Node* N){
 	if (N == nullptr) {
-		Node *newNode = new Node();
-		newNode->data = n;
-		N = newNode;
-	} else if (n > N->data) {
-		insertRecursively(n, N->right);	
-	} else if (n <= N->data) {
-		insertRecursively(n, N->left);	
-	}
+        Node *newNode = new Node();
+        newNode->data = n;
+        N = newNode;
+    } else if (n > N->data) {
+        if (N->right == nullptr) {
+            Node *newNode = new Node();
+            newNode->data = n;
+            N->right = newNode;
+        } else {
+            insertRecursively(n, N->right);
+        }
+    } else if (n <= N->data) {
+        if (N->left == nullptr) {
+            Node *newNode = new Node();
+            newNode->data = n;
+            N->left = newNode;
+        } else {
+            insertRecursively(n, N->left);
+        }
+    }
 };
 
 void BST::print(Node *node){
