@@ -1,4 +1,4 @@
-#include "BST.h"
+#include "BST.cpp"
 #include <stdlib.h>
 #include <iostream>
 #include <vector>
