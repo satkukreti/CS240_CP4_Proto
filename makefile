@@ -1,13 +1,10 @@
-test: main
+test: CP4
 	./cp4
 
-main: main.o BST.o
-	g++ -Wall -Wextra -g main.o BST.o -o cp4
+CP4: BST.o
+	g++ -Wall -Wextra -g BST.o -o cp4
 
-main.o: main.cpp
-	g++ -Wall -Wextra -c main.cpp
-
-BST.o: BST.cpp BST.h
+BST.o: BST.cpp
 	g++ -Wall -Wextra -c BST.cpp
 	
 clean:
